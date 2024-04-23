@@ -1,3 +1,23 @@
+:root {
+    --dark-purple: #171123;
+    --purple: #372248;
+    --dark-blue: #414770;
+    --blue: #5B85AA;
+    --orange: #F46036;
+}
+
+body {
+    background-color: var(--dark-purple);
+    color: white;
+    font-family: "Outfit", sans-serif;
+}
+
+textarea {
+    background-color: var(--purple);
+    border: none;
+    color: white;
+}
+
 .multiline {
     white-space: pre-wrap;
 }
