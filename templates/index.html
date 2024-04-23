@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>TODO</h1>
-
+    <form action="/add" method="POST">
+        <textarea type="text" name="task" rows="4" columns="50" placeholder="Add a new task here" required></textarea>
+        <button type="submit">Add</button>
+    </form>
     <ul>
         {% for task in tasks %}
             <li>
-                {{ task[1] }}
+                <p class="multiline">{{ task[1] }}</p>
+                <a href="/delete/{{ task[0] }}">Delete</a>
             </li>
         {% endfor %}
     </ul>
