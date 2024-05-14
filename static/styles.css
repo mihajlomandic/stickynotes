@@ -1,23 +1,153 @@
 :root {
-    --dark-purple: #171123;
-    --purple: #372248;
-    --dark-blue: #414770;
-    --blue: #5B85AA;
-    --orange: #F46036;
+    --gray: #B0B0B0;
+    --off-white: #EEEDE6;
+    --light-yellow: #FFE56F;
+    --yellow: #E9CB46;
+    --dark-yellow: #C9AE33;
+    --blue: #4A99C7;
+    --red: #E24B4B
 }
 
 body {
-    background-color: var(--dark-purple);
-    color: white;
+    background-color: var(--off-white);
+    color: black;
     font-family: "Outfit", sans-serif;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem;
+    overflow: scroll;
 }
 
 textarea {
-    background-color: var(--purple);
+    background-color: transparent;
     border: none;
-    color: white;
+    color: black;
+    resize: none;
+    height: 11rem;
+
+    grid-row: 1;
+
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+textarea::placeholder {
+    opacity: 1;
+    color: var(--gray);
 }
 
-.multiline {
+h1 {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+.sticky-notes {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+.sticky-note {
+    position: relative;
+    width: 16rem;
+    height: 16rem;
+
+    background-color: var(--yellow);
+}
+.sticky-note::after {
+    content: '';
+
+    display: block;
+    width: 0; 
+    height: 0; 
+
+    position: absolute;
+    top: 13rem;
+    left: 13rem;
+
+    border-top: 1.5rem solid var(--dark-yellow);
+    border-left: 1.5rem solid var(--dark-yellow);
+    border-right: 1.5rem solid var(--off-white);
+    border-bottom: 1.5rem solid var(--off-white);
+}
+.sticky-note:hover::after {
+    content: none;
+}
+
+
+.new-note-field {
+    background-color: transparent;
+    box-sizing: border-box;
+    width: 16rem;
+    height: 16rem;
+    border: 0.2rem dashed var(--gray);
+}
+.new-note-field::after {
+    content: none;
+}
+
+.submit-button {
+    background-color: transparent;
+    border: 0.2rem dashed var(--gray);
+    height: 2rem;
+
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--gray);
+
+    cursor: pointer;
+
+    grid-row: 2;
+}
+.submit-button:hover {
+    background-color: var(--yellow);
+    color: black;
+    border: none;
+}
+
+.note-text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 16rem;
+    height: 16rem;
+    overflow: scroll;
+}
+
+.note-text {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    word-wrap: break-word;
     white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.delete-button {
+    margin-left: auto;
+    margin-bottom: 0.8rem;
+    margin-right: 1rem;
+
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--dark-yellow);
+}
+.delete-button:hover {
+    color: var(--red);
 }

@@ -4,30 +4,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TODO</title>
     
-    <link href="{{url_for('static',filename='output.css')}}" rel="stylesheet">
     <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
 </head>
 <body>
-    <h1>TODO</h1>
-    <form action="/add" method="POST">
-        <textarea type="text" name="task" rows="4" columns="50" placeholder="Add a new task here" required
-        class="shadow-xl"
-        ></textarea>
-        <button type="submit">Add</button>
-    </form>
-    <ul>
-        {% for task in tasks %}
-            <li>
-                <p class="multiline shadow-md text-center">{{ task[1] }}</p>
-                <a href="/delete/{{ task[0] }}">Delete</a>
-            </li>
+    <h1>STICKY NOTES</h1>
+    <div class="sticky-notes">
+        <div class="new-note-field sticky-note">
+            <form action="/add" method="POST">
+                <textarea type="text" name="task" rows="4" columns="50" placeholder="Add a new task here" required></textarea>
+                <button class="submit-button" type="submit">ADD NOTE</button>
+            </form>
+        </div>
+        {% for task in tasks|reverse %}
+            <div class="sticky-note">
+                <div class="note-text-box">
+                    <p class="note-text">{{ task[1] }}</p>
+                    <a class="delete-button" href="/delete/{{ task[0] }}"><span class="material-symbols-outlined">delete</span></a>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>
