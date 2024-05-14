@@ -1,1 +1,1 @@
-# A simple ☑️ TO-DO app made with Flask
+# A simple 📃 Sticky Notes app made with Flask
