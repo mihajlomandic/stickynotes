@@ -1,5 +1,6 @@
 :root {
-    --gray: #B0B0B0;
+    --title: #000000;
+    --gray: #999999;
     --off-white: #EEEDE6;
     --light-yellow: #FFE56F;
     --yellow: #E9CB46;
@@ -13,6 +14,7 @@ body {
     color: black;
     font-family: "Outfit", sans-serif;
     padding: 0;
+    padding-bottom: 3rem;
     margin: 0;
 
     display: flex;
@@ -45,10 +47,26 @@ textarea::placeholder {
     color: var(--gray);
 }
 
-h1 {
-    text-align: center;
+.header {
+    position: relative;
     padding-top: 1rem;
     padding-bottom: 3rem;
+}
+
+#dark-mode-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    cursor: pointer;
+    color: var(--title);
+}
+
+h1 {
+    color: var(--title);
+    text-align: center;
+    padding: 0;
+    display: block;
+    margin: auto;
 }
 
 .sticky-notes {

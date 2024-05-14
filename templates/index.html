@@ -12,9 +12,14 @@
     <title>TODO</title>
     
     <link href="{{url_for('static',filename='styles.css')}}" rel="stylesheet">
+
+    <script src="{{url_for('static', filename='script.js')}}" defer></script>
 </head>
 <body>
-    <h1>STICKY NOTES</h1>
+    <div class="header">
+        <h1>STICKY NOTES</h1>
+        <span class="material-symbols-outlined" id="dark-mode-toggle">dark_mode</span>
+    </div>
     <div class="sticky-notes">
         <div class="new-note-field sticky-note">
             <form action="/add" method="POST">
