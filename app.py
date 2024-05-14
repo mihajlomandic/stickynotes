@@ -1,14 +1,8 @@
 from flask import Flask, render_template, url_for, request, redirect
-from flask_login import LoginManager
 import sqlite3
-from secret_key import *
+
 
 app = Flask(__name__, template_folder='templates', static_url_path='', static_folder='static')
-
-set_secret_key()
-
-login_manager = LoginManager()
-login_manager.init_app(app)
 
 
 def create_database():
